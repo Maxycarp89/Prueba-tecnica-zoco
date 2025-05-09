@@ -158,7 +158,7 @@ const ProfilePage = () => {
       {/* Enlaces a otras secciones */}
       <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
         <Link 
-          to="/studies" 
+          to="/dashboard/studies" 
           className="bg-white shadow rounded-lg overflow-hidden hover:shadow-md transition-shadow"
         >
           <div className="p-6">
@@ -175,7 +175,7 @@ const ProfilePage = () => {
         </Link>
 
         <Link 
-          to="/addresses" 
+          to="/dashboard/addresses" 
           className="bg-white shadow rounded-lg overflow-hidden hover:shadow-md transition-shadow"
         >
           <div className="p-6">
