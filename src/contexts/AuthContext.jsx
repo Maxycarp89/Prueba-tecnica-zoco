@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Verificar si hay un token en el sessionStorage
+    // Verifico si hay un token en el sessionStorage
     const storedToken = sessionStorage.getItem('token');
     if (storedToken) {
       try {
