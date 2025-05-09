@@ -1,6 +1,9 @@
-# ZOCO App - SPA con React y Tailwind
+# ZOCO App - 
 
-Esta aplicación es una SPA (Single Page Application) construida con React y Tailwind CSS que incluye autenticación con roles, manejo de sesión, consumo de APIs simuladas y gestión de datos relacionados al usuario autenticado. La aplicación es completamente responsiva, adaptándose correctamente a dispositivos móviles.
+Esta aplicación es una SPA construida con React y Tailwind CSS que incluye autenticación con roles, manejo de sesión, consumo de APIs simuladas y gestión de datos relacionados al usuario autenticado. La aplicación es completamente responsiva, adaptándose correctamente a dispositivos móviles.
+
+## Deployment
+-https://prueba-tecnica-zoco-zeta.vercel.app/
 
 ## Características
 
