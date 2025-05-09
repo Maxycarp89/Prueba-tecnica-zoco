@@ -46,38 +46,54 @@ export const authService = {
   login: async (email, password) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        // Credenciales de prueba
-        if (email === "admin@example.com" && password === "admin123") {
-          const userData = {
+        // Inicializar usuarios de prueba si no existen
+        const defaultUsers = [
+          {
             id: 1,
             name: "Administrador",
             email: "admin@example.com",
             role: "admin",
-          };
-          const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
-          
-          
-          const storedUsers = getStoredData('users', []);
-          if (!storedUsers.some(u => u.id === userData.id)) {
-            storeData('users', [userData, ...storedUsers]);
-          }
-          
-          resolve({ user: userData, token });
-        } else if (email === "user@example.com" && password === "user123") {
-          const userData = {
+          },
+          {
             id: 2,
             name: "Usuario Normal",
             email: "user@example.com",
             role: "user",
-          };
-          const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJpYXQiOjE1MTYyMzkwMjJ9.7Tq_95jnMP8hD0jkJUbYMlJsPCIVapvH9PVjMGfmfB8";
-          
-          
-          const storedUsers = getStoredData('users', []);
-          if (!storedUsers.some(u => u.id === userData.id)) {
-            storeData('users', [userData, ...storedUsers]);
+          },
+          { 
+            id: 3, 
+            name: "Ana García", 
+            email: "ana@example.com", 
+            role: "user"
+          },
+          {
+            id: 4,
+            name: "Carlos Pérez",
+            email: "carlos@example.com",
+            role: "user"
+          },
+          {
+            id: 5,
+            name: "Laura Martínez",
+            email: "laura@example.com",
+            role: "user"
           }
-          
+        ];
+
+        let storedUsers = getStoredData('users', []);
+        if (storedUsers.length === 0) {
+          storeData('users', defaultUsers);
+          storedUsers = defaultUsers;
+        }
+
+        // Credenciales de prueba
+        if (email === "admin@example.com" && password === "admin123") {
+          const userData = storedUsers.find(u => u.id === 1);
+          const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+          resolve({ user: userData, token });
+        } else if (email === "user@example.com" && password === "user123") {
+          const userData = storedUsers.find(u => u.id === 2);
+          const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJpYXQiOjE1MTYyMzkwMjJ9.7Tq_95jnMP8hD0jkJUbYMlJsPCIVapvH9PVjMGfmfB8";
           resolve({ user: userData, token });
         } else {
           reject({ message: "Credenciales inválidas" });
