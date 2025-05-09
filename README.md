@@ -26,7 +26,7 @@ Esta aplicación es una SPA (Single Page Application) construida con React y Tai
 
 1. Clona este repositorio:
 ```bash
-git clone <url-del-repositorio>
+git clone https://github.com/Maxycarp89/Prueba-tecnica-zoco.git
 cd prueba-tecnica-zoco
 ```
 
